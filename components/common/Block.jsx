@@ -7,12 +7,12 @@ const Block = ({ title, desc, bgColor, btn, btnText,link }) => {
     >
       <Container className="">
         <div className="px-0 md:px-20">
-          <div className="flex flex-col space-y-6 md:space-y-8 items-center justify-center text-center">
-            <p className="text-white text-2xl sm:text-3xl md:text-[40px] font-medium leading-snug">
+          <div className="flex flex-col space-y-4 md:space-y-6 items-center justify-center text-center">
+            <p className="text-white text-2xl sm:text-3xl md:text-[40px] max-w-3xl font-medium leading-snug">
               {title}
             </p>
 
-            <p className="text-white text-base sm:text-lg md:text-2xl max-w-3xl">
+            <p className="text-white text-base sm:text-lg md:text-[20px] max-w-2xl">
               {desc}
             </p>
 

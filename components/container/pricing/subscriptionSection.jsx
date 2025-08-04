@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import FullContainer from "../../common/FullContainer";
 import Container from "../../common/Container";
+import { ArrowDown } from "lucide-react";
 
 const pricingPlans = [
   {
@@ -9,23 +10,49 @@ const pricingPlans = [
     price: "$165",
     period: "/mo",
     color: "#1AB394",
-
     subtitle: "For link builders with a single website",
     features: [
-      "2 Users",
-      "2 Email Accounts",
-      "25,000 Outreach Emails",
-      "1 Workspace",
-      "10,000 Prospecting Searches /mo",
-      "200,000 Contacts",
-      "Link Monitoring",
-      "Basic Reports",
-      "Link Building Workflow",
-      "CRM",
-      "Prospecting & Contact Discovery",
-      "Outreach & Auto Follow-up",
-      "All Reports",
-      "Alternatives detection",
+      { title: "2 Users" },
+      {
+        title: "2 Email Accounts",
+      },
+      {
+        title: "2,000 Outreach Emails",
+        hasDesc: true,
+        desc: "Cold outreach emails and follow-ups per month. Communication emails are free and are not counted towards this limit.",
+      },
+      { title: "1 Workspace" },
+      {
+        title: "25 Campaigns /mo",
+        hasDesc: true,
+        desc: "Build Targeted Lists: Create lists of opportunities and contacts.\nReach Out Effectively: Contact the right people with personalized outreach. \nOrganize Campaigns: Segment targets by strategy, category, or type.",
+      },
+      { title: "1,000 Prospecting Searches /mo" },
+      { title: "50,000 Contacts" },
+      {
+        title: "600,000 Data Credits per year",
+        hasDesc: true,
+        desc: "Data credits are used for discovering prospects, emails and email verification. \nProspects: 1 credit/ website \nContacts: 2 credits/ verified email",
+      },
+    ],
+    coreFeatures: [
+      { title: "Prospecting & Contact Discovery" },
+      { title: "Outreach & Auto Follow-up" },
+      { title: "CRM" },
+      { title: "Inbox" },
+      { title: "Basic Reports" },
+      {
+        title: "AI Personalization",
+        hasDesc: true,
+        desc: "Leverage advanced AI to generate personalized outreach emails and qualify link opportunities. This dual-action feature ensures your messaging resonates with prospects and targets the most promising sites.",
+      },
+      {
+        title: "AI Reply",
+        hasDesc: true,
+        desc: "Automatically generate effective responses directly in your Inbox. This AI is optimized for link building and negotiation to help secure links faster and at a lower cost.",
+      },
+      { title: "Link Building Workflow" },
+      { title: "Link Monitoring" },
     ],
     button: {
       text: "TRY FOR FREE",
@@ -37,22 +64,54 @@ const pricingPlans = [
     price: "$420",
     period: "/mo",
     color: "#159AEB",
-
     subtitle: "For growing agencies with few clients",
     features: [
-      "Unlimited Users",
-      "5 Email Accounts",
-      "50,000 Outreach Emails",
-      "2 Workspaces",
-      "15,000 Prospecting Searches /mo",
-      "300,000 Contacts",
-      "Pro Reports",
-      "Advanced Content Discovery Testing",
-      "Bulk & Personalization",
-      "Slack Integration",
-      "White-label Reports",
-      "Deliverability Monitoring",
-      "API",
+      {
+        title: "Unlimited Users",
+      },
+      {
+        title: "6 Email Accounts",
+      },
+      {
+        title: "5,000 Outreach Emails",
+        hasDesc: true,
+        desc: "Cold outreach emails and follow-ups per month. Communication emails are free and are not counted towards this limit.",
+      },
+      { title: "25 Workspaces" },
+      {
+        title: "1,000 New Campaigns /mo",
+        hasDesc: true,
+        desc: "Build Targeted Lists: Create lists of opportunities and contacts.\nReach Out Effectively: Contact the right people with personalized outreach. \nOrganize Campaigns: Segment targets by strategy, category, or type.",
+      },
+      { title: "5,000 Prospecting Searches /mo" },
+      { title: "200,000 Contacts" },
+      {
+        title: "Unlimited Data Credits",
+        hasDesc: true,
+        desc: "Data credits are used for discovering prospects, emails and email verification. \nProspects: 1 credit/ website \nContacts: 2 credits/ verified email",
+      },
+    ],
+    coreFeatures: [
+      {
+        title: "Advanced Contact Discovery Tuning",
+        hasDesc: true,
+        desc: "Automatically refine your contact lists by filtering out personal emails (e.g. @gmail.com, @hotmail.com) and including only those that match your opportunity domain. Get more targeted contacts and boost your outreach success.",
+      },
+      {
+        title: "Email Rotation",
+        hasDesc: true,
+        desc: "Automatically cycle through your email accounts to evenly distribute sending volume, lower spam risks, and improve overall deliverability in your outreach campaigns.",
+      },
+      {
+        title: "Bulk AI Personalization",
+        hasDesc: true,
+        desc: "Leverage advanced AI to automatically generate personalized outreach emails at scale while also qualifying link opportunities. This dual-action feature ensures your messaging resonates with prospects and targets the most promising sites.",
+      },
+      { title: "Deliverability Monitoring" },
+      { title: "Slack Integration" },
+      { title: "White-Label Reports" },
+      { title: "Pro Reports" },
+      { title: "API" },
     ],
     button: {
       text: "TRY FOR FREE",
@@ -66,17 +125,37 @@ const pricingPlans = [
     color: "#9B51E0",
     subtitle: "For teams scaling up link outreach",
     features: [
-      "Unlimited Users",
-      "15 Email Accounts",
-      "150,000 Outreach Emails",
-      "Unlimited Workspaces",
-      "Unlimited Prospecting Searches",
-      "500,000 Contacts",
-      "Advanced Automations",
-      "Pro Reports + Locator",
-      "Approval Workflow",
-      "Hybrid (Gmail/SMTP) Sending",
-      "Multi-Region Sending",
+      {
+        title: "Unlimited Users",
+      },
+      {
+        title: "15 Email Accounts",
+      },
+      {
+        title: "15,000 Outreach Emails",
+        hasDesc: true,
+        desc: "Cold outreach emails and follow-ups per month. Communication emails are free and are not counted towards this limit.",
+      },
+      { title: "Unlimited Workspaces" },
+      {
+        title: "Unlimited Campaigns",
+        hasDesc: true,
+        desc: "Build Targeted Lists: Create lists of opportunities and contacts.\nReach Out Effectively: Contact the right people with personalized outreach. \nOrganize Campaigns: Segment targets by strategy, category, or type.",
+      },
+      { title: "Unlimited Prospecting Searches" },
+      { title: "Unlimited Contacts" },
+      {
+        title: "Unlimited Data Credits",
+        hasDesc: true,
+        desc: "Data credits are used for discovering prospects, emails and email verification. This plan has no limits on prospecting and email discovery.",
+      },
+    ],
+    coreFeatures: [
+      { title: "Advanced Automations" },
+      { title: "Pro Reports + Looker" },
+      { title: "Approval Workflow" },
+      { title: "Hybrid oAuth/SMTP Sending" },
+      { title: "Multi-Region Sending*" },
     ],
     button: {
       text: "TRY FOR FREE",
@@ -84,9 +163,9 @@ const pricingPlans = [
     },
   },
 ];
-
 export default function SubscriptionSection() {
   const [isMonthly, setIsMonthly] = useState(true);
+
   const handleToggle = () => {
     setIsMonthly((prev) => !prev);
   };
@@ -150,67 +229,186 @@ export default function SubscriptionSection() {
         </div>
       </Container>
 
-      <Container className="grid grid-cols-1 md:grid-cols-3 gap-6 px-2">
+      <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-5">
         {pricingPlans.map((plan, idx) => (
           <div
             key={idx}
             className={`rounded-lg shadow-lg text-left`}
             style={{ borderTop: `6px solid ${plan.color}` }}
           >
-            <div className="py-4 border-b border-gray-200">
-              <div className="px-8">
-                <h2 className="text-[24px] font-semibold mb-1">{plan.title}</h2>
-                <p className=" text-sm text-gray-500 mb-3">{plan.subtitle}</p>
-                <span className="text-3xl font-bold">{plan.price}</span>
+            <div className="py-6 border-b border-gray-200">
+              <div className="px-10">
+                <h2 className="text-[28px] font-semibold leading-relaxed">
+                  {plan.title}
+                </h2>
+                <p className=" text-sm text-gray-500 mb-3 leading-relaxed">
+                  {plan.subtitle}
+                </p>
+                <span className="text-3xl font-bold mr-2">{plan.price}</span>
                 <span className="text-gray-600">{plan.period}</span>
               </div>
             </div>
-            <ul className="mb-4 space-y-1 text-sm">
-              {plan.features.map((feature, i) => (
-                <li key={i} className="flex items-center">
-                  <span className="text-green-600 font-bold mr-2">✓</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <button
-              className={`${plan.button.btnColor} text-white w-full py-2 rounded-lg`}
-            >
-              {plan.button.text}
-            </button>
-            <p className="text-center mt-2 text-blue-500 cursor-pointer">
-              or Subscribe
-            </p>
+            <div className="border-b border-gray-200">
+              <div className="p-10">
+                <ul className="mb-4 space-y-2 text-[14px] text-gray-600">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start relative group">
+                      <span className="text-green-600 font-bold bg-green-100 rounded-full w-5 h-5 flex items-center justify-center mr-2 text-[14px]">
+                        ✓
+                      </span>
+
+                      <span
+                        className={`${
+                          typeof feature === "object" && feature.hasDesc
+                            ? "border-b border-dashed border-gray-400 cursor-pointer"
+                            : ""
+                        }`}
+                      >
+                        {typeof feature === "object" ? feature.title : feature}
+                      </span>
+
+                      {typeof feature === "object" && feature.desc && (
+                        <div className="absolute left-6 bottom-full mb-4 z-10 hidden group-hover:block bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.15)] text-gray-700 text-sm p-3 w-64">
+                          <div className="absolute bottom-[-10px] left-4 w-0 h-0 drop-shadow-neutral-800 drop-shadow-2xl border-l-12 border-r-12 border-t-12 border-l-transparent border-r-transparent border-t-white"></div>
+
+                          {feature.desc.split("\n").map((line, idx) => (
+                            <p key={idx} className="mb-1">
+                              {line}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+
+                <button
+                  className={`text-[12px] mt-10 cursor-pointer font-semibold leading-relaxed text-white w-full px-2 py-4 transition-all duration-300`}
+                  style={{
+                    backgroundColor: plan.button.btnColor
+                      .replace("bg-[", "")
+                      .replace("]", ""),
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = plan.color;
+                    e.currentTarget.style.border = `1px solid ${plan.color}`;
+                    e.currentTarget.style.backgroundColor = "transparent";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "white";
+                    e.currentTarget.style.backgroundColor = plan.button.btnColor
+                      .replace("bg-[", "")
+                      .replace("]", "");
+                    e.currentTarget.style.border = "none";
+                  }}
+                >
+                  {plan.button.text}
+                </button>
+                <div className="text-center mt-4">
+                  <a
+                    href="/signup"
+                    className="relative group inline-block cursor-pointer"
+                  >
+                    <span className="relative inline-flex items-center gap-2 text-[12px] text-blue-500 font-semibold text-sm leading-relaxed after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">
+                      or Subscribe
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="">
+              <div className="p-10">
+                <div className="mb-2 text-[14px] leading-relaxed font-semibold text-gray-800">
+                  {plan.title === "Pro" && "Core features:"}
+                  {plan.title === "Advanced" && "Pro features, plus:"}
+                  {plan.title === "Scale" && "Advanced features, plus:"}
+                </div>
+
+                <ul className="mb-4 space-y-2 text-[14px] text-gray-600">
+                  {plan.coreFeatures.map((feature, i) => (
+                    <li key={i} className="flex items-start relative group">
+                      <span className="text-black font-bold flex items-center justify-center mr-2 text-[14px]">
+                        ✓
+                      </span>
+
+                      <span
+                        className={`${
+                          typeof feature === "object" && feature.hasDesc
+                            ? "border-b border-dashed border-gray-400 cursor-pointer"
+                            : ""
+                        }`}
+                      >
+                        {typeof feature === "object" ? feature.title : feature}
+                      </span>
+
+                      {typeof feature === "object" && feature.desc && (
+                        <div className="absolute left-6 bottom-full mb-4 z-10 hidden group-hover:block bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.25)] text-gray-700 text-sm p-3 w-64 rounded-md">
+                          {/* Tooltip Arrow */}
+                          <div className="absolute bottom-[-10px] left-4 w-0 h-0  drop-shadow-neutral-800 drop-shadow-2xl border-l-12 border-r-12 border-t-12 border-l-transparent border-r-transparent border-t-white "></div>
+
+                          {feature.desc.split("\n").map((line, idx) => (
+                            <p key={idx} className="mb-1">
+                              {line}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         ))}
       </Container>
-
-      <div className="mt-10 text-sm text-blue-500 cursor-pointer">
-        SEE ALL FEATURES ↓
-      </div>
-
-      <div className="bg-gray-100 mt-16 py-10 px-6 rounded-lg max-w-5xl mx-auto">
-        <h3 className="text-xl font-semibold mb-2">Enterprise Platform</h3>
-        <p className="text-sm text-gray-600 mb-4">
-          Our most powerful solution designed for corporations and public
-          companies with stability, security and compliance in mind.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-          <ul className="list-disc list-inside">
-            <li>Single sign-on (SSO)</li>
-            <li>Service Level Agreement (SLA)</li>
-            <li>Custom Service Agreement</li>
-            <li>Vendor Security Review</li>
-          </ul>
-          <ul className="list-disc list-inside">
-            <li>Private Training & Dedicated Support</li>
-            <li>Data Retention Policy</li>
-          </ul>
+      <Container>
+        <div className="mt-10 group text-[14px] font-medium flex items-center justify-center gap-x-2 text-[#1198EB] cursor-pointer">
+          SEE ALL FEATURES
+          <ArrowDown
+            className="h-5 w-5 text-[#1198EB] transition-transform duration-300 ease-in-out group-hover:translate-y-1"
+            strokeWidth={1.5}
+          />
         </div>
-        <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg">
-          GET IN TOUCH
-        </button>
-      </div>
+
+        <div className="bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.25)] mt-16 py-6 px-6 rounded-lg">
+          <div className="flex flex-col md:flex-row justify-center md:justify-between gap-0 md:gap-8">
+            {/* Left Side */}
+            <div className="md:w-1/2 text-left px-8 py-4">
+              <h3 className="text-[30px] font-semibold mb-2">
+                Enterprise Platform
+              </h3>
+              <p className="text-[16px] text-gray-600 mb-4">
+                Our most powerful solution designed for corporations and public
+                companies with stability, security and compliance in mind.
+              </p>
+              <button className="mt-4 text-[14px] px-8 py-3 bg-blue-500 text-white cursor-pointer hover:border hover:text-blue-500 hover:border-blue-500 hover:bg-white ">
+                GET IN TOUCH
+              </button>
+            </div>
+
+            {/* Right Side */}
+            <div className="md:w-1/2 flex items-center px-8 py-4">
+              <ul className="space-y-2 text-sm">
+                {[
+                  "Single sign-on (SSO)",
+                  "Service Level Agreement (SLA)",
+                  "Custom Service Agreement",
+                  "Vendor Security Review",
+                  "Private Training & Dedicated Support",
+                  "Data Retention Policy",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-black font-bold mr-2 text-[14px]">
+                      ✓
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </Container>
     </FullContainer>
   );
 }
