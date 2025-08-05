@@ -3,8 +3,9 @@
 import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
-import Link from "next/link";
 import Container from "./Container";
+import { useRouter } from 'next/router';
+
 
 const navbarMenuItems = [
   { label: "Overview", href: "/product" },
@@ -183,10 +184,19 @@ const Navbar = () => {
     setMobileDropdown(null);
   };
 
+
+  
+const router = useRouter();
+const pathname = router.pathname;
+
+const isTransparentPage = ["/case-studies", "/pricing", "/product/seo-email-client"].includes(pathname);
+
+
+
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        isSticky ? "bg-white shadow-lg" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300  ${
+        isSticky|| isTransparentPage ? "bg-white border-b border-gray-200" : "bg-transparent"
       }`}
     >
       <Container className="">
@@ -216,7 +226,7 @@ const Navbar = () => {
                   {item.hasDropdown ? (
                     <button
                       className={`flex text-[14px] mt-1 font-medium items-center space-x-1 hover:text-blue-400 transition-colors duration-200 py-2 cursor-pointer ${
-                        isSticky ? "text-gray-800" : "text-white"
+                        isSticky || isTransparentPage ? "text-gray-800" : "text-white"
                       }`}
                     >
                       <span>{item.label}</span>
@@ -230,7 +240,7 @@ const Navbar = () => {
                     // navigation items with no dropdown
                     <a
                       className={`items-center text-[14px] font-medium transition-colors duration-200 py-2 cursor-pointer ${
-                        isSticky
+                        isSticky || isTransparentPage
                           ? "text-gray-800 hover:text-blue-500"
                           : "text-white hover:text-blue-400"
                       }`}
@@ -355,7 +365,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-3">
               <a
                 className={`border uppercase px-4 py-2 font-medium transition-colors duration-200 text-[14px] rounded ${
-                  isSticky
+                  isSticky || isTransparentPage
                     ? "border-[#1198EB] text-gray-800 hover:bg-[#1198EB] hover:text-white"
                     : "border-white text-white hover:bg-[#1198EB]"
                 }`}
@@ -365,7 +375,7 @@ const Navbar = () => {
               </a>
               <a
                 className={`px-4 py-2 uppercase border border-white text-[14px] text-white bg-[#1198EB] hover:border-[#1198EB] hover:bg-white transition-colors rounded ${
-                  isSticky ? "hover:text-gray-800" : "hover:text-[#1198EB]"
+                  isSticky || isTransparentPage ? "hover:text-gray-800" : "hover:text-[#1198EB]"
                 }`}
                 href="/demo"
               >
@@ -378,7 +388,7 @@ const Navbar = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`lg:hidden transition-colors duration-200 ${
-              isSticky ? "text-gray-800" : "text-white"
+              isSticky || isTransparentPage ? "text-gray-800" : "text-white"
             }`}
           >
             {isMenuOpen ? (

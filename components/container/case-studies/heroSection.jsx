@@ -4,7 +4,7 @@ import FullContainer from "../../common/FullContainer";
 
 const HeroSection = () => {
   return (
-    <FullContainer className="mt-24 py-16 md:py-28 px-6 md:px-10 border bg-[linear-gradient(#eff4ff,_#eff4ff)] border-gray-50 ">
+    <FullContainer className="mt-20 py-16 md:py-28 px-6 md:px-10 border bg-[linear-gradient(#eff4ff,_#eff4ff)] border-gray-50 ">
       <Container>
         <div className="px-0 md:px-20 bg[#eff4ff]">
           <div className="flex flex-col space-y-6 md:space-y-8 items-center justify-center text-center">

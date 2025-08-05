@@ -1,21 +1,28 @@
-// components/LogoDisplay.tsx
+"use client";
+import { useRouter } from 'next/router';
 import React from "react";
 
-
+ 
 
 const Logo = ({ isSticky }) => {
+
+const router = useRouter();
+const pathname = router.pathname;
+
+const isTransparentPage = ["/case-studies", "/pricing", "/product/seo-email-client"].includes(pathname);
+
   return (
     <div className="flex items-center">
       <div
         className={`text-[40px] px-0.5 font-medium tracking-normal  ${
-          isSticky ? "text-black" : "text-white"
+          isSticky || isTransparentPage ? "text-black" : "text-white"
         }`}
       >
         pitch
       </div>
       <div
         className={`px-0.5 text-[40px] font-medium tracking-normal ${
-          isSticky ? "bg-red-500 text-white" : "bg-white text-black"
+          isSticky || isTransparentPage ? "bg-red-500 text-white" : "bg-white text-black"
         }`}
       >
         box
