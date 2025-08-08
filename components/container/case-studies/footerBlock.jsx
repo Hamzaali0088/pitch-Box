@@ -15,7 +15,7 @@ const FooterBlock = ({
   return (
     <FullContainer className={`py-30 ${bgColor} `}>
       <Container className="px-5">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-2 lg:gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-2 lg:gap-16">
           <div className=" w-full lg:w-1/2 lg:text-left text-center">
             <p className="text-white text-2xl sm:text-3xl md:text-[40px] font-medium leading-snug">
               {title}

@@ -189,7 +189,7 @@ const Navbar = () => {
 const router = useRouter();
 const pathname = router.pathname;
 
-const isTransparentPage = ["/case-studies", "/pricing", "/product/seo-email-client"].includes(pathname);
+const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-policy","/contact-us","/privacy-policy","/terms","/demo", "/product/seo-email-client"].includes(pathname);
 
 
 
@@ -369,7 +369,7 @@ const isTransparentPage = ["/case-studies", "/pricing", "/product/seo-email-clie
                     ? "border-[#1198EB] text-gray-800 hover:bg-[#1198EB] hover:text-white"
                     : "border-white text-white hover:bg-[#1198EB]"
                 }`}
-                href="/trial"
+                href="/signup"
               >
                 try for free
               </a>

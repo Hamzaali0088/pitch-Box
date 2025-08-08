@@ -154,14 +154,14 @@ const FooterSection = () => {
               </span>
               <div className="flex items-center space-x-4">
                 <a
-                  href="#"
+                  href="/terms"
                   className="text-[14px] opacity-60 text-gray-500 hover:text-gray-700 hover:opacity-90   transition-colors"
                 >
                   Terms
                 </a>
                 <span className="opacity-60 ">·</span>
                 <a
-                  href="#"
+                  href="/cookie-policy"
                   className="text-[14px] opacity-60 text-gray-500 hover:text-gray-700 hover:opacity-90 transition-colors"
                 >
                   Cookie Policy
@@ -175,7 +175,7 @@ const FooterSection = () => {
                 </a>
                 <span className="opacity-60 ">·</span>
                 <a
-                  href="#"
+                  href="/privacy-policy"
                   className="text-[14px] opacity-60 text-gray-500 hover:text-gray-700 hover:opacity-90 transition-colors"
                 >
                   Privacy Policy
