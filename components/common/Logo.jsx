@@ -9,7 +9,7 @@ const Logo = ({ isSticky }) => {
 const router = useRouter();
 const pathname = router.pathname;
 
-const isTransparentPage = ["/case-studies", "/pricing","/demo", "/product/seo-email-client"].includes(pathname);
+const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-policy","/contact-us","/privacy-policy","/terms","/demo", "/product/seo-email-client"].includes(pathname);
 
   return (
     <div className="flex items-center">
