@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "../../common/Container";
+import Link from "next/link";
 
 const LinkBuildingSection = () => {
   return (
@@ -19,12 +20,12 @@ const LinkBuildingSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-[#1198EB] hover:bg-gray-900 hover:border cursor-pointer hover:border-[#1198EB] text-[14px] text-white px-8 py-3 font-medium transition-all duration-300 ease-in-out">
+              <Link href="/signup" className="border border-[#1198EB] bg-[#1198EB] hover:bg-gray-900 cursor-pointer hover:border-[#1198EB] text-[14px] text-white px-8 py-3 font-medium transition-all duration-300 ease-in-out">
                 TRY FOR FREE
-              </button>
-              <button className="border bg-gray-900 hover:border-[#1198EB] hover:bg-[#1198EB] cursor-pointer text-[14px] border-[#1198EB] text-white px-8 py-3 font-medium transition-all duration-300 ease-in-out">
+              </Link>
+              <Link href="/demo" className="border bg-gray-900 hover:border-[#1198EB] hover:bg-[#1198EB] cursor-pointer text-[14px] border-[#1198EB] text-white px-8 py-3 font-medium transition-all duration-300 ease-in-out">
                 BOOK A DEMO
-              </button>
+              </Link>
             </div>
           </div>
 

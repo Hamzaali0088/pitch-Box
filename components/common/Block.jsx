@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Container from "./Container";
 
 const Block = ({ title, desc, bgColor, btn, btnText,link }) => {
@@ -17,12 +18,12 @@ const Block = ({ title, desc, bgColor, btn, btnText,link }) => {
             </p>
 
             {btn ? (
-              <a
+              <Link
                 className="border uppercase px-8 sm:px-10 md:px-14 py-3 sm:py-4 md:py-5 font-bold tracking-widest transition-colors duration-300 text-sm md:text-[14px] bg-white border-[#1198EB] text-[#1198EB] hover:border-white hover:text-white hover:bg-[#1198EB]"
                 href={link}
               >
                 {btnText}
-              </a>
+              </Link>
             ) : (
               ""
             )}

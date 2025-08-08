@@ -1,20 +1,12 @@
 "use client";
-import {
-  Play,
-  Star,
-  Users,
-  TrendingUp,
-  Target,
-  BarChart3,
-  Link,
-  Shield,
-} from "lucide-react";
+
 import FullContainer from "../../common/FullContainer";
 import Container from "../../common/Container";
 import Image from "next/image";
 import LogoGrid from "../home/LogoGrid";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 
 function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -66,11 +58,12 @@ function TestimonialsSection() {
               {/* Author Info */}
               <div className="flex items-center justify-start">
                 <div className="flex-shrink-0 mr-4">
-                  <img
+                  <Image
                     src={testimonial.avatar}
+                    width={60}
+                    height={60}
                     alt={testimonial.name}
                     className="w-15 h-15 rounded-full object-cover"
-                    style={{ width: "60px", height: "60px" }}
                   />
                 </div>
                 <div>
@@ -297,9 +290,9 @@ export default function DemoSection() {
               </div>
               <p className="text-[16px] text-blue-100 mt-4 text-center">
                 Don't need a demo?{" "}
-                <a href="/signup" className="font-bold text-white underline">
+                <Link href="/signup" className="font-bold text-white underline">
                   Sign Up Now
-                </a>
+                </Link>
               </p>
             </div>
             <div className="absolute -bottom-24 left-7/12 transform -translate-x-1/2">

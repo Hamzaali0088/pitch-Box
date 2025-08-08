@@ -5,6 +5,7 @@ import FullContainer from "../../common/FullContainer";
 import Image from "next/image";
 import Logo from "../../common/Logo";
 import toast, { Toaster } from "react-hot-toast";
+import Link from "next/link";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
@@ -88,7 +89,18 @@ const handleSubmit = () => {
       <div className="relative z-10 w-full max-w-md">
         {/* Logo */}
         <div className="flex justify-center items-center mx-auto my-6 py-4">
-          <Logo isSticky={true} />
+          <div className="flex-shrink-0">
+            <Link href="/" className="block">
+              <Image
+                width={200}
+                height={40}
+                src="/logo-image.jpg"
+                alt="Logo"
+                className="object-cover"
+                priority
+              />
+            </Link>
+          </div>
         </div>
 
         {/* Login Form */}
@@ -156,39 +168,39 @@ const handleSubmit = () => {
 
             {/* Forgot Password */}
             <div className="text-center pb-4 border-b border-gray-200">
-              <a
+              <Link
                 href="/login"
                 className="text-blue-500 hover:text-blue-600 text-sm"
               >
                 Forgot Password?
-              </a>
+              </Link>
             </div>
 
             {/* Sign Up Link */}
             <div className="text-center text-sm text-gray-600 mt-2">
               Don't have an account?{" "}
-              <a
+              <Link
                 href="/signup"
                 className="text-blue-500 hover:text-blue-600 font-medium"
               >
                 Sign Up
-              </a>
+              </Link>
             </div>
           </div>
         </div>
 
         {/* Footer Links */}
         <div className="text-center mt-8 text-sm text-gray-500 space-x-4">
-          <a
+          <Link
             href="/privacy-policy"
             className="text-blue-500 hover:text-blue-600"
           >
             Privacy Policy
-          </a>
+          </Link>
           <span>•</span>
-          <a href="/terms" className="text-blue-500 hover:text-blue-600">
+          <Link href="/terms" className="text-blue-500 hover:text-blue-600">
             Terms of Service
-          </a>
+          </Link>
         </div>
       </div>
     </FullContainer>

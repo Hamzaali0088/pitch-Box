@@ -10,8 +10,9 @@ import {
   Facebook,
   Linkedin,
 } from "lucide-react";
-import Logo from "./Logo";
 import Container from "./Container";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -97,7 +98,18 @@ const FooterSection = () => {
           {/* Logo and Description */}
           <div className="lg:col-span-1">
             <div className="mb-4">
-              <Logo isSticky={true} />
+              <div className="flex-shrink-0">
+                <Link href="/" className="block">
+                  <Image
+                    width={200}
+                    height={40}
+                    src="/logo-image.jpg"
+                    alt="Logo"
+                    className="object-cover"
+                    priority
+                  />
+                </Link>
+              </div>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed opacity-60">
               Link Building Software for Agencies, Publishers, and Brands.
@@ -113,12 +125,12 @@ const FooterSection = () => {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-neutral-500 opacity-60 text-[14px] leading-relaxed hover:text-gray-900 transition-colors duration-200"
                     >
                       {link.tag}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -153,46 +165,46 @@ const FooterSection = () => {
                 Copyright © 2025 · Pitchbox™ · All rights reserved
               </span>
               <div className="flex items-center space-x-4">
-                <a
+                <Link
                   href="/terms"
                   className="text-[14px] opacity-60 text-gray-500 hover:text-gray-700 hover:opacity-90   transition-colors"
                 >
                   Terms
-                </a>
+                </Link>
                 <span className="opacity-60 ">·</span>
-                <a
+                <Link
                   href="/cookie-policy"
                   className="text-[14px] opacity-60 text-gray-500 hover:text-gray-700 hover:opacity-90 transition-colors"
                 >
                   Cookie Policy
-                </a>
+                </Link>
                 <span className="opacity-60 ">·</span>
-                <a
+                <Link
                   href="#"
                   className="text-[14px] opacity-60 text-gray-500 hover:text-gray-700 hover:opacity-90 transition-colors"
                 >
                   VDP
-                </a>
+                </Link>
                 <span className="opacity-60 ">·</span>
-                <a
+                <Link
                   href="/privacy-policy"
                   className="text-[14px] opacity-60 text-gray-500 hover:text-gray-700 hover:opacity-90 transition-colors"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </div>
             </div>
 
             {/* Social Icons */}
             <div className="flex items-center space-x-4">
               {socialIcons.map((social, index) => (
-                <a
+                <Link
                   key={index}
                   href={social.href}
                   className="text-gray-500 hover:text-gray-700 opacity-60 hover:opacity-90 transition-colors duration-200"
                 >
                   {social.icon}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

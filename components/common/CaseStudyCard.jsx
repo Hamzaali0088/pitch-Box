@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Container from "./Container";
 import Image from "next/image";
 
@@ -12,7 +13,7 @@ const CaseStudyCard = ({
 }) => {
   return (
     <Container className="group relative overflow-hidden cursor-pointer px-2 ">
-      <a className={`flex ${bgColor}`} href={buttonHref}>
+      <Link className={`flex ${bgColor}`} href={buttonHref}>
         <div className="flex flex-col lg:flex-row w-full">
           {/* Left side - Image */}
           <div className="relative w-full lg:w-1/2">
@@ -55,7 +56,7 @@ const CaseStudyCard = ({
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </Container>
   );
 };

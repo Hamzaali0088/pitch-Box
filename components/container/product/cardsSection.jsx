@@ -1,8 +1,8 @@
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import SectionCard from "../../common/cardComponent";
 import Container from "../../common/Container";
 import TestimonialCard from "../../common/TestimonialCard";
+import Link from "next/link";
 
 
 export default function CardsSection() {
@@ -49,12 +49,12 @@ export default function CardsSection() {
           </div>
 
           {/* Right Button */}
-          <a
+          <Link
             className="border uppercase px-6 sm:px-7 md:px-9 py-3 sm:py-4 font-semibold leading-relaxed tracking-widest transition-colors ease-in-out duration-200 text-blue-400 hover:bg-[#0A5ED0] bg-white text-[12px] sm:text-[13px] md:text-[14px] hover:text-white"
             href="/signup"
           >
             try for free
-          </a>
+          </Link>
         </div>
         </Container>
       </div>

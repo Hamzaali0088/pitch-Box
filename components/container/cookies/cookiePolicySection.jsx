@@ -1,6 +1,7 @@
 import React from "react";
 import FullContainer from "../../common/FullContainer";
 import Container from "../../common/Container";
+import Link from "next/link";
 
 export default function CookiePolicySection() {
   // Cookie Policy data structure
@@ -132,7 +133,7 @@ export default function CookiePolicySection() {
     return processedText.split(" ").map((word, index) => {
       if (urlRegex.test(word)) {
         return (
-          <a
+          <Link
             key={index}
             href={word}
             className="text-gray-600 underline"
@@ -140,7 +141,7 @@ export default function CookiePolicySection() {
             rel="noopener noreferrer"
           >
             {word}
-          </a>
+          </Link>
         );
       }
       return word + " ";
@@ -232,12 +233,12 @@ export default function CookiePolicySection() {
               <p className="text-gray-600 text-sm">
                 For more information about managing cookies, please visit your
                 browser's help section or{" "}
-                <a
+                <Link
                   href="http://www.aboutcookies.org"
                   className=" text-gray-600 underline"
                 >
                   www.aboutcookies.org
-                </a>
+                </Link>
               </p>
             </div>
           </div>

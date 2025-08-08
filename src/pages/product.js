@@ -30,6 +30,7 @@ const Product = () => {
         btn={true}
         btnText="try for free"
         bgColor="bg-[#1198EB]"
+        link="/signup"
       />
       <Footer />
     </>
