@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "./Container";
+import Link from "next/link";
 
 const HeroSectionWithBtn = ({
   bgColor,
@@ -44,19 +45,19 @@ const HeroSectionWithBtn = ({
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
+              <Link
                 href={btnLink}
-                className={` ${btnStyle} uppercase cursor-pointer text-[14px] px-8 py-3 font-medium transition-all duration-300 ease-in-out`}
+                className={` ${btnStyle} border border-blue-400 uppercase cursor-pointer text-[14px] px-8 py-3 font-medium transition-all duration-300 ease-in-out`}
               >
                 {btnText}
-              </a>
+              </Link>
               {secondBtnDisplay ? (
-                <a
+                <Link
                   href={secondBtnLink}
-                  className={`${secondBtnStyle} uppercase cursor-pointer text-[14px] px-8 py-3 font-medium transition-all duration-300 ease-in-out`}
+                  className={`${secondBtnStyle}  border border-blue-400 uppercase cursor-pointer text-[14px] px-8 py-3 font-medium transition-all duration-300 ease-in-out`}
                 >
                   {secondBtnText}
-                </a>
+                </Link>
               ) : (
                 ""
               )}

@@ -2,10 +2,10 @@
 
 import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import Logo from "./Logo";
 import Container from "./Container";
-import { useRouter } from 'next/router';
-
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
 
 const navbarMenuItems = [
   { label: "Overview", href: "/product" },
@@ -184,28 +184,43 @@ const Navbar = () => {
     setMobileDropdown(null);
   };
 
+  const router = useRouter();
+  const pathname = router.pathname;
 
-  
-const router = useRouter();
-const pathname = router.pathname;
-
-const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-policy","/contact-us","/privacy-policy","/terms","/demo", "/product/seo-email-client"].includes(pathname);
-
-
+  const isTransparentPage = [
+    "/case-studies",
+    "/integrations",
+    "/pricing",
+    "/cookie-policy",
+    "/contact-us",
+    "/privacy-policy",
+    "/terms",
+    "/demo",
+    "/product/seo-email-client",
+  ].includes(pathname);
 
   return (
     <div
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300  ${
-        isSticky|| isTransparentPage ? "bg-white border-b border-gray-200" : "bg-transparent"
+        isSticky || isTransparentPage
+          ? "bg-white border-b border-gray-200"
+          : "bg-transparent"
       }`}
     >
       <Container className="">
         <div className="flex items-center justify-between py-4">
           {/* logo place here */}
           <div className="flex-shrink-0">
-            <a className="" href="/">
-              <Logo isSticky={isSticky} />
-            </a>
+            <Link href="/" className="block">
+              <Image
+                width={200}
+                height={40}
+                src="/logo-image.jpg"
+                alt="Logo"
+                className="object-cover"
+                priority
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -226,7 +241,9 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                   {item.hasDropdown ? (
                     <button
                       className={`flex text-[14px] mt-1 font-medium items-center space-x-1 hover:text-blue-400 transition-colors duration-200 py-2 cursor-pointer ${
-                        isSticky || isTransparentPage ? "text-gray-800" : "text-white"
+                        isSticky || isTransparentPage
+                          ? "text-gray-800"
+                          : "text-white"
                       }`}
                     >
                       <span>{item.label}</span>
@@ -238,7 +255,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                     </button>
                   ) : (
                     // navigation items with no dropdown
-                    <a
+                    <Link
                       className={`items-center text-[14px] font-medium transition-colors duration-200 py-2 cursor-pointer ${
                         isSticky || isTransparentPage
                           ? "text-gray-800 hover:text-blue-500"
@@ -247,15 +264,15 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                       href={item.href}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   )}
 
                   {/* dropdown menu */}
                   {item.hasDropdown && activeDropdown === item.label && (
-                    <div className="absolute left-0 top-12 z-50 transition-all duration-200">
+                    <div className="absolute left-0 top-12 z-50 transition-all duration-200 overflow-hidden">
                       {item.megaMenu ? (
-                        <Container className="rounded-lg shadow-xl min-w-[768px] max-w-5xl w-auto bg-white border border-gray-100 overflow-y-auto max-h-[600px]">
-                          <div className="flex flex-row gap-x-12 px-8 py-6">
+                        <Container className="rounded-lg shadow-xl sm:w-[500px] lg:w-[600px] border border-gray-100 bg-white">
+                          <div className="flex flex-row gap-x-8 px-4 py-4">
                             {item.sections.map((section, sectionIndex) => (
                               <div className="flex-1" key={sectionIndex}>
                                 <h3 className="font-semibold text-gray-700 border-b border-gray-200 text-[14px] uppercase tracking-widest mb-4 pb-2">
@@ -263,7 +280,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                                 </h3>
                                 <div className="space-y-1">
                                   {section.items.map((subItem, subIndex) => (
-                                    <a
+                                    <Link
                                       key={subIndex}
                                       href={subItem.href}
                                       className="flex items-start transition-colors duration-200 group p-3 rounded-lg hover:bg-gray-50"
@@ -285,7 +302,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                                           {subItem.desc}
                                         </p>
                                       </div>
-                                    </a>
+                                    </Link>
                                   ))}
                                 </div>
                               </div>
@@ -299,7 +316,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                                 </h3>
                                 <div className="space-y-3">
                                   {item.featuredReads.map((post, postIndex) => (
-                                    <a
+                                    <Link
                                       className="flex p-3 rounded-lg group hover:bg-gray-50 transition-colors duration-200"
                                       key={postIndex}
                                       href={post.href}
@@ -319,7 +336,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                                           {post.desc}
                                         </p>
                                       </div>
-                                    </a>
+                                    </Link>
                                   ))}
                                 </div>
                               </div>
@@ -330,7 +347,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                         <div className="rounded-lg shadow-xl py-2 min-w-[320px] max-w-md w-auto bg-white border border-gray-100 overflow-y-auto max-h-[500px]">
                           <div className="space-y-1">
                             {item.items?.map((subItem, subIndex) => (
-                              <a
+                              <Link
                                 key={subIndex}
                                 className="flex items-start space-x-3 p-3 hover:bg-gray-50 group transition-colors duration-200"
                                 href={subItem.href}
@@ -350,7 +367,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                                     {subItem.desc}
                                   </div>
                                 </div>
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         </div>
@@ -363,7 +380,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
 
             {/* buttons */}
             <div className="flex items-center space-x-3">
-              <a
+              <Link
                 className={`border uppercase px-4 py-2 font-medium transition-colors duration-200 text-[14px] rounded ${
                   isSticky || isTransparentPage
                     ? "border-[#1198EB] text-gray-800 hover:bg-[#1198EB] hover:text-white"
@@ -372,15 +389,17 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                 href="/signup"
               >
                 try for free
-              </a>
-              <a
+              </Link>
+              <Link
                 className={`px-4 py-2 uppercase border border-white text-[14px] text-white bg-[#1198EB] hover:border-[#1198EB] hover:bg-white transition-colors rounded ${
-                  isSticky || isTransparentPage ? "hover:text-gray-800" : "hover:text-[#1198EB]"
+                  isSticky || isTransparentPage
+                    ? "hover:text-gray-800"
+                    : "hover:text-[#1198EB]"
                 }`}
                 href="/demo"
               >
                 book a demo
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -430,7 +449,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                                   </h4>
                                   <div className="space-y-2">
                                     {section.items?.map((subItem, subIndex) => (
-                                      <a
+                                      <Link
                                         key={subIndex}
                                         href={subItem.href}
                                         className="block py-2 px-2 text-gray-600 hover:text-blue-500 hover:bg-gray-50 rounded"
@@ -442,7 +461,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                                         <div className="text-sm text-gray-500">
                                           {subItem.desc}
                                         </div>
-                                      </a>
+                                      </Link>
                                     ))}
                                   </div>
                                 </div>
@@ -455,7 +474,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                                   <div className="space-y-2">
                                     {item.featuredReads.map(
                                       (post, postIndex) => (
-                                        <a
+                                        <Link
                                           key={postIndex}
                                           href={post.href}
                                           className="block py-2 px-2 text-gray-600 hover:text-blue-500 hover:bg-gray-50 rounded"
@@ -467,7 +486,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                                           <div className="text-sm text-gray-500">
                                             {post.desc}
                                           </div>
-                                        </a>
+                                        </Link>
                                       )
                                     )}
                                   </div>
@@ -477,7 +496,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                           ) : (
                             <div className="space-y-2">
                               {item.items?.map((subItem, subIndex) => (
-                                <a
+                                <Link
                                   key={subIndex}
                                   href={subItem.href}
                                   className="block py-2 px-2 text-gray-600 hover:text-blue-500 hover:bg-gray-50 rounded"
@@ -489,7 +508,7 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                                   <div className="text-sm text-gray-500">
                                     {subItem.desc}
                                   </div>
-                                </a>
+                                </Link>
                               ))}
                             </div>
                           )}
@@ -497,32 +516,32 @@ const isTransparentPage = ["/case-studies","/integrations", "/pricing","/cookie-
                       )}
                     </div>
                   ) : (
-                    <a
+                    <Link
                       className="block text-gray-800 font-medium py-3 px-2 hover:bg-gray-50 rounded"
                       href={item.href}
                       onClick={closeMobileMenu}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   )}
                 </div>
               ))}
 
               <div className="pt-4 border-t space-y-3">
-                <a
+                <Link
                   className="block text-center px-4 py-3 font-medium uppercase bg-[#1198EB] text-white rounded hover:bg-blue-600 transition-colors"
                   onClick={closeMobileMenu}
                   href="/trial"
                 >
                   try for free
-                </a>
-                <a
+                </Link>
+                <Link
                   className="block text-center px-4 py-3 font-medium uppercase border border-[#1198EB] text-[#1198EB] rounded hover:bg-[#1198EB] hover:text-white transition-colors"
                   onClick={closeMobileMenu}
                   href="/demo"
                 >
                   book a demo
-                </a>
+                </Link>
               </div>
             </div>
           </div>

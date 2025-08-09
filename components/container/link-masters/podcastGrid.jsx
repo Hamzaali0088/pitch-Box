@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Container from "../../common/Container";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
 const cards = [
   {
@@ -56,16 +56,14 @@ const cards = [
 ];
 
 export default function PodcastGrid() {
-  const router = useRouter();
-
   return (
     <section className="bg-gray-100 py-24">
       <Container className="px-5 ">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {cards.map((card, index) => (
-            <div
+            <Link
               key={index}
-              onClick={() => router.push(card.link)}
+              href={card.link}
               className="group cursor-pointer bg-white overflow-hidden"
             >
               <div className="w-full aspect-[16/9] relative">
@@ -82,7 +80,7 @@ export default function PodcastGrid() {
                   {card.title}
                 </h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </Container>

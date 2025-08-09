@@ -1,16 +1,17 @@
+import Link from "next/link";
 import Container from "../../common/Container";
 import FullContainer from "../../common/FullContainer";
 
 const FooterBlock = ({
+  bgColor,
   title,
   desc,
   btnText,
-  secondBtnText,
-  btnTextLink,
-  secondBtnTextLink,
-  bgColor,
   btnStyle,
+  btnTextLink,
   secondBtnStyle,
+  secondBtnText,
+  secondBtnTextLink,
 }) => {
   return (
     <FullContainer className={`py-30 ${bgColor} `}>
@@ -25,19 +26,20 @@ const FooterBlock = ({
             <p className="text-white text-base sm:text-lg md:text-[22px] leading-relaxed max-w-3xl">
               {desc}
             </p>
-            <div className="flex flex-row gap-6 lg:justify-start justify-center">
-              <a
-                className={` uppercase ${btnStyle} px-6 sm:px-8 md:px-12 py-2 sm:py-3 md:py-4 font-bold tracking-widest transition-colors duration-300 text-[12px]`}
+            <div className="flex flex-row flex-wrap gap-4 lg:gap-6 lg:justify-start justify-center">
+              <Link
                 href={btnTextLink}
+                className={`uppercase ${btnStyle} px-6 sm:px-8 md:px-12 py-2 sm:py-3 md:py-4 font-bold tracking-widest transition-all duration-300 text-[12px] `}
               >
                 {btnText}
-              </a>
-              <a
-                className={` uppercase ${secondBtnStyle} px-6 sm:px-8 md:px-12 py-2 sm:py-3 md:py-4 font-bold tracking-widest transition-colors duration-300 text-[12px] `}
+              </Link>
+
+              <Link
                 href={secondBtnTextLink}
+                className={`uppercase ${secondBtnStyle} px-6 sm:px-8 md:px-12 py-2 sm:py-3 md:py-4 font-bold tracking-widest transition-all duration-300 text-[12px] `}
               >
                 {secondBtnText}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

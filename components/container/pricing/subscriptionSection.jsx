@@ -5,6 +5,7 @@ import Container from "../../common/Container";
 import { ArrowDown, Check, X } from "lucide-react";
 import Image from "next/image";
 import ContentBtnWrapper from "../../common/ContentBtnWrapper";
+import Link from "next/link";
 
 const pricingPlans = [
   {
@@ -826,7 +827,7 @@ export default function SubscriptionSection() {
                     </div>
 
                     <button
-                      className={`text-[14px] mt-2 cursor-pointer font-semibold leading-relaxed text-white w-full px-2 py-4 transition-all duration-300`}
+                      className={`border text-[14px] mt-2 cursor-pointer font-semibold leading-relaxed text-white w-full px-2 py-4 transition-all duration-300`}
                       style={{
                         backgroundColor: plan.btnColor
                           .replace("bg-[", "")
@@ -848,14 +849,14 @@ export default function SubscriptionSection() {
                       {plan.buttonText}
                     </button>
                     <div className="text-center mt-4">
-                      <a
+                      <Link
                         href="/signup"
                         className="relative group inline-block cursor-pointer"
                       >
                         <span className="relative inline-flex items-center gap-2 text-[12px] text-blue-500 font-semibold text-sm leading-relaxed after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">
                           or Subscribe
                         </span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 ))}
@@ -1069,7 +1070,7 @@ export default function SubscriptionSection() {
                 </ul>
 
                 <button
-                  className={`text-[12px] mt-10 cursor-pointer font-semibold leading-relaxed text-white w-full px-2 py-4 transition-all duration-300`}
+                  className={`border text-[12px] mt-10 cursor-pointer font-semibold leading-relaxed text-white w-full px-2 py-4 transition-all duration-300`}
                   style={{
                     backgroundColor: plan.button.btnColor
                       .replace("bg-[", "")
@@ -1091,14 +1092,14 @@ export default function SubscriptionSection() {
                   {plan.button.text}
                 </button>
                 <div className="text-center mt-4">
-                  <a
+                  <Link
                     href="/signup"
                     className="relative group inline-block cursor-pointer"
                   >
                     <span className="relative inline-flex items-center gap-2 text-[12px] text-blue-500 font-semibold text-sm leading-relaxed after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">
                       or Subscribe
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -1167,9 +1168,9 @@ export default function SubscriptionSection() {
                 Our most powerful solution designed for corporations and public
                 companies with stability, security and compliance in mind.
               </p>
-              <button className="mt-4 text-[14px] px-8 py-3 bg-blue-500 text-white cursor-pointer hover:border hover:text-blue-500 hover:border-blue-500 hover:bg-white ">
+              <Link href="/contact-us" className="border mt-4 text-[14px] px-8 py-3 bg-blue-500 text-white cursor-pointer hover:border hover:text-blue-500 hover:border-blue-500 hover:bg-white ">
                 GET IN TOUCH
-              </button>
+              </Link>
             </div>
 
             {/* Right Side */}

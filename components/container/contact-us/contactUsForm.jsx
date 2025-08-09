@@ -4,6 +4,7 @@ import countryList from "react-select-country-list";
 
 import Container from "../../common/Container";
 import FullContainer from "../../common/FullContainer";
+import Link from "next/link";
 
 const ContactUsForm = () => {
   const countryOptions = useMemo(() => countryList().getData(), []);
@@ -201,16 +202,16 @@ const ContactUsForm = () => {
 
           <p className="text-[14px] text-gray-500 leading-relaxed tracking-wide mt-4 text-left">
             This site is protected by reCAPTCHA and the Google{" "}
-            <a
+            <Link
               href="/privacy-policy"
               className="font-medium text-blue-400 underline"
             >
               Privacy Policy
-            </a>{" "}
+            </Link>{" "}
             and{" "}
-            <a href="/terms" className="font-medium text-blue-400 underline">
+            <Link href="/terms" className="font-medium text-blue-400 underline">
               Terms of Service
-            </a>{" "}
+            </Link>{" "}
             apply.
           </p>
         </form>

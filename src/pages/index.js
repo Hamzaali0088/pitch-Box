@@ -27,6 +27,10 @@ export default function Home() {
       <FiveStar />
       <Testimonial />
       <BlueBlock
+        bgColor="bg-[#1198EB]"
+        btn={true}
+        btnText="try for free"
+        link="/signup"
         title="Outsmart Your Competition, Find Better Prospects, and Build More Links With Pitchbox"
         desc="See how Pitchbox can save you hundreds of
 hours building and managing link building."

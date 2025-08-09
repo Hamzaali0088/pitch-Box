@@ -3,8 +3,6 @@ import HeroSectionWithBtn from "../../../components/common/heroSectionWithBtn";
 import Navbar from "../../../components/common/Navbar";
 import FooterBlock from "../../../components/container/case-studies/footerBlock";
 import DisplayCards from "../../../components/container/reports/displayCards";
-import DisplaySectionCards from "../../../components/container/seo-email-client/displaySectionCards";
-import UniversalConnectivitySection from "../../../components/container/seo-email-client/universalConnectivitySection";
 
 const Reports = () => {
   return (

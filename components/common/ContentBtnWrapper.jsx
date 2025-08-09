@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 const ContentBtnWrapper = ({ title, desc, btnText, link }) => {
   return (
@@ -13,12 +14,12 @@ const ContentBtnWrapper = ({ title, desc, btnText, link }) => {
         </div>
 
         {/* Right Button */}
-        <a
-          className="hover:border hover:border-[#1198EB] uppercase px-9 py-4 font-semibold leading-relaxed tracking-widest transition-colors ease-in-out duration-200 hover:text-[#1198EB] bg-[#1198EB] hover:bg-white text-[14px] text-white"
+        <Link
+          className="border hover:border-[#1198EB] uppercase px-9 py-4 font-semibold leading-relaxed tracking-widest transition-colors ease-in-out duration-200 hover:text-[#1198EB] bg-[#1198EB] hover:bg-white text-[14px] text-white"
           href={link}
         >
           {btnText}
-        </a>
+        </Link>
       </div>
     </div>
   );

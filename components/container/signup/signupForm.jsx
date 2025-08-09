@@ -4,6 +4,8 @@ import FullContainer from "../../common/FullContainer";
 import React from "react";
 import Select, { components } from "react-select";
 import countryList from "react-select-country-list";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function SignupForm() {
   const [formData, setFormData] = useState({
@@ -33,13 +35,17 @@ export default function SignupForm() {
   return (
     <FullContainer className="">
       <div className="bg-[#2F4050] p-2">
-        <div className="flex items-center">
-          <span className="text-[30px] leading-relaxed font-medium text-gray-100 mr-1">
-            pitch
-          </span>
-          <span className="text-[30px]  leading-relaxed font-medium text-white bg-red-500">
-            box
-          </span>
+        <div className="flex-shrink-0">
+          <Link href="/" className="block">
+            <Image
+              width={200}
+              height={40}
+              src="/logo-image.jpg"
+              alt="Logo"
+              className="object-cover"
+              priority
+            />
+          </Link>
         </div>
       </div>
 
@@ -185,12 +191,12 @@ export default function SignupForm() {
                 </div>
                 <span className="ml-2 text-[14px] text-gray-600">
                   I read and agree to{" "}
-                  <a
+                  <Link
                     href="/signup"
                     className="text-blue-500 hover:text-[#0a81c1]"
                   >
                     terms and conditions
-                  </a>
+                  </Link>
                 </span>
               </label>
             </div>
@@ -244,19 +250,19 @@ export default function SignupForm() {
                 <div className="text-[10px] text-gray-600 text-center leading-none">
                   <div className="text-[11px] mb-1">reCAPTCHA</div>
                   <div className="flex space-x-1">
-                    <a
+                    <Link
                       href="https://policies.google.com/privacy?hl=en"
                       className="hover:underline text-gray-600"
                     >
                       Privacy
-                    </a>
+                    </Link>
                     <span>-</span>
-                    <a
+                    <Link
                       href="https://policies.google.com/terms?hl=en"
                       className="hover:underline text-gray-600"
                     >
                       Terms
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -277,12 +283,12 @@ export default function SignupForm() {
       {/* Footer */}
       <div className="text-center my-8 text-[14px] text-gray-500 max-w-3xl mx-auto space-x-2">
         <span>© Copyright Pitchbox, 2012-2025. All Rights Reserved.</span>
-        <a href="/signup" className="text-blue-500 hover:text-[#0285CB] ">
+        <Link href="/signup" className="text-blue-500 hover:text-[#0285CB] ">
           End User Agreement
-        </a>
-        <a href="/signup" className="text-blue-500 hover:text-[#0285CB] ">
+        </Link>
+        <Link href="/signup" className="text-blue-500 hover:text-[#0285CB] ">
           Terms & Conditions
-        </a>
+        </Link>
       </div>
       <div className="bg-[#2F4050] py-8"></div>
     </FullContainer>

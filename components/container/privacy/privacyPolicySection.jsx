@@ -1,6 +1,7 @@
 import React from "react";
 import FullContainer from "../../common/FullContainer";
 import Container from "../../common/Container";
+import Link from "next/link";
 
 export default function PrivacyPolicySection() {
   // Privacy policy data structure
@@ -247,7 +248,7 @@ export default function PrivacyPolicySection() {
     return text.split(/(\s+)/).map((word, index) => {
       if (urlRegex.test(word)) {
         return (
-          <a
+          <Link
             key={index}
             href={word}
             className="text-gray-800 underline"
@@ -255,17 +256,17 @@ export default function PrivacyPolicySection() {
             rel="noopener noreferrer"
           >
             {word}
-          </a>
+          </Link>
         );
       } else if (emailRegex.test(word)) {
         return (
-          <a
+          <Link
             key={index}
             href={`mailto:${word}`}
             className="text-gray-800 underline"
           >
             {word}
-          </a>
+          </Link>
         );
       }
       return word;

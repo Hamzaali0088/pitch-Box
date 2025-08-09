@@ -27,7 +27,7 @@ const AI = () => {
         title="Ready to learn more? Schedule a private demo to see Pitchbox in action."
         desc="Your link building team will thank you 👇🏻"
         btnText="try for free"
-        btnStyle="bg-white text-[#2A1954] hover:bg-[#2A1954] hover:text-white hover:border hover:border-white"
+        btnStyle="bg-white text-[#2A1954] hover:bg-[#2A1954] hover:text-white border hover:border-white"
         secondBtnStyle="bg-[#2A1954] text-white hover:bg-white hover:text-[#2A1954] border border-white"
         secondBtnText="book a demo"
         btnTextLink="/signup"
