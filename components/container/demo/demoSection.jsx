@@ -222,19 +222,18 @@ export default function DemoSection() {
       {/* Hero Section with Video and Demo Form */}
       <div className="bg-white py-36 px-4 border-b border-gray-200">
         <Container className=" px-5">
-          <div className="flex flex-col md:flex-row justify-center gap-8 items-center">
+          <div className="relative flex flex-col lg:flex-row items-center gap-6 justify-center">
             {/* Video Section */}
-            <div className="relative bg-gray-200 px-12 py-12">
-              <div className="md:w-1/2 w-full relative">
+            <div className="bg-gray-100 p-6 max-w-md">
+              <div className="w-full relative">
                 <iframe
                   src="https://fast.wistia.net/embed/iframe/vungv4sfjk?dnt=1#?secret=AcPekANZxx"
                   allowfullscreen
                   frameborder="0"
-                  width="560"
-                  height="320"
+                  className="w-full h-[290px] aspect-video rounded"
                 ></iframe>
               </div>
-              <div className="mt-4 text-sm text-[18px] text-gray-600 leading-relaxed">
+              <div className="mt-4 text-sm sm:text-[18px] text-gray-600 leading-relaxed">
                 <p>
                   Get a private walkthrough, take a deeper look at the platform,
                   and learn if your business and Pitchbox make a perfect match.
@@ -243,7 +242,7 @@ export default function DemoSection() {
             </div>
 
             {/* Demo Form */}
-            <div className="bg-[#1198EB] max-w-[300px] md:max-w-[450px] rounded px-9 py-11 text-white">
+            <div className="bg-[#1198EB] p-6 rounded-lg max-w-md">
               <h2 className="text-2xl font-bold mb-6">
                 Schedule Your Pitchbox Demo
               </h2>
@@ -295,13 +294,13 @@ export default function DemoSection() {
                 </Link>
               </p>
             </div>
-            <div className="absolute -bottom-24 left-7/12 transform -translate-x-1/2">
+            <div className="absolute hidden lg:block left-1/2 -bottom-[15%] transform -translate-x-1/2">
               <Image
-                width={200}
-                height={200}
                 src="/st-images/italic-arrow.svg"
-                alt="italic-arrow"
-                className="h-auto w-[200px] object-contain"
+                alt="arrow"
+                width={150}
+                height={150}
+                className="w-[200px] object-contain"
               />
             </div>
           </div>
