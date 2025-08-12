@@ -210,7 +210,7 @@ const Navbar = () => {
               <Image
                 width={200}
                 height={40}
-                src="/logo-image.jpg"
+                src="/logo.png"
                 alt="Logo"
                 className="object-cover"
                 priority
@@ -572,7 +572,7 @@ const Navbar = () => {
 
       {/* Scroll to top button */}
       {isSticky && (
-        <div className="fixed bottom-8 right-8 transition-all z-40">
+        <div className="fixed bottom-8 right-8 transition-all z-40 cursor-pointer">
           <button
             className="bg-gray-600 hover:bg-gray-700 text-white p-3 rounded-full shadow-lg transition-all duration-200"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

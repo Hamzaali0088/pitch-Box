@@ -7,6 +7,7 @@ import Testimonial from "../../components/container/home/Testimonial";
 import Footer from "../../components/common/Footer";
 import Navbar from "../../components/common/Navbar";
 import BlueBlock from "../../components/common/Block";
+import FeaturesCard from "../../components/common/FeaturesCard";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,8 +33,7 @@ export default function Home() {
         btnText="try for free"
         link="/signup"
         title="Outsmart Your Competition, Find Better Prospects, and Build More Links With Pitchbox"
-        desc="See how Pitchbox can save you hundreds of
-hours building and managing link building."
+        desc="See how Pitchbox can save you hundreds of hours building and managing link building."
       />
       <Footer />
     </div>

@@ -7,9 +7,9 @@ import LogoGrid from "./LogoGrid";
 
 const features = [
   {
-    title: "Find bloggers, publishers, and influencers in record time",
+    title: "Mobile-Friendly Automation",
     description:
-      "With multiple prospecting profiles and intuitive keyword search, Pitchbox allows you to find influencers in your niche in a matter of seconds. Integration with top SEO providers ensures that you only pull back the most authoritative publishers.",
+      "This is a big one. Most tools require you to sit at your desktop. With Robo Anywhere, you can monitor, tweak, or even launch automations straight from your phone or tablet. It’s like having your own personal assistant in your pocket.",
     testimonial:
       "Unlike many outreach platforms that are clunky and confusing, Pitchbox is a breeze to use.",
     author: "Brian Dean, @Backlinko",
@@ -19,9 +19,9 @@ const features = [
     authSrc: "/st-images/Brian-Dean.jpg",
   },
   {
-    title: "Customizable, personalized outreach and follow up",
+    title: "No-Code Interface",
     description:
-      "Save hundreds of hours each month while being in total control of your messaging. Customize each outreach email to your target opportunities, without manual input, and automatically follow up with prospects who haven't responded, boosting response rates 62% on average.",
+      "Automation Anywhere offers an intuitive interface that allows business users to design automation workflows without extensive programming knowledge. Its drag-and-drop functionality simplifies automation design.",
     testimonial:
       "Pitchbox is a beast of a machine! The automated follow-ups work better than anything I've ever seen.",
     author: "Bill Sebald, Greenlane",
@@ -31,9 +31,33 @@ const features = [
     imagePosition: "left",
   },
   {
-    title: "Make data-driven decisions",
+    title: "Adaptive Task Learning",
     description:
-      "Track each step of the outreach process, from broad strategy down to campaign and user specifics. Using Pitchbox's detailed Management, Client, and Team reports, managers and team members alike can refine their outreach strategy to optimize efficiency and maximize results.",
+      "One thing I love is how it doesn’t just blindly repeat tasks. It starts to understand patterns and can actually adjust over time. That’s not just automation—that’s smart automation.",
+    testimonial:
+      "If you do outreach and haven't checked out Pitchbox, you're doing yourself a disservice. Smart product!",
+    author: "Eppie Vojt, Red Ventures",
+    learnMore: "LEARN MORE",
+    imgSrc: "/st-images/feature-3.jpg",
+    authSrc: "/st-images/Eppie-Vojt.jpg",
+    imagePosition: "right",
+  },
+  {
+    title: "Cloud-Based Platform",
+    description:
+      "Built with a cloud-first approach, Automation Anywhere is highly scalable, supporting deployment in cloud and hybrid environments. This ensures that organizations can grow their automation initiatives without infrastructure limitations.",
+    testimonial:
+      "If you do outreach and haven't checked out Pitchbox, you're doing yourself a disservice. Smart product!",
+    author: "Eppie Vojt, Red Ventures",
+    learnMore: "LEARN MORE",
+    imgSrc: "/st-images/feature-3.jpg",
+    authSrc: "/st-images/Eppie-Vojt.jpg",
+    imagePosition: "left",
+  },
+  {
+    title: "Robust Security Measures",
+    description:
+      "The platform provides security features like user authentication, role-based access control, and secure bot management to ensure compliance with industry standards and regulations.",
     testimonial:
       "If you do outreach and haven't checked out Pitchbox, you're doing yourself a disservice. Smart product!",
     author: "Eppie Vojt, Red Ventures",

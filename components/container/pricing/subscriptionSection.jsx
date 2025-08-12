@@ -947,11 +947,10 @@ export default function SubscriptionSection() {
       <Container>
         <div className="mb-16">
           <h1 className="text-5xl font-medium leading-relaxed mb-2">
-            Pitchbox Pricing & Plans
+            Pricing & Plans
           </h1>
           <p className="mb-6 text-[20px] tracking-wide leading-relaxed text-gray-600">
-            Everything you need to discover prospects and turn them into
-            backlinks.
+            Automate Your Tasks Anywhere, Anytime with RoboAnywhere.
           </p>
         </div>
 
@@ -1168,7 +1167,10 @@ export default function SubscriptionSection() {
                 Our most powerful solution designed for corporations and public
                 companies with stability, security and compliance in mind.
               </p>
-              <Link href="/contact-us" className="border mt-4 text-[14px] px-8 py-3 bg-blue-500 text-white cursor-pointer hover:border hover:text-blue-500 hover:border-blue-500 hover:bg-white ">
+              <Link
+                href="/contact-us"
+                className="border mt-4 text-[14px] px-8 py-3 bg-blue-500 text-white cursor-pointer hover:border hover:text-blue-500 hover:border-blue-500 hover:bg-white "
+              >
                 GET IN TOUCH
               </Link>
             </div>

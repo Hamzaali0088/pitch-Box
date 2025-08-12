@@ -34,13 +34,13 @@ export default function SignupForm() {
 
   return (
     <FullContainer className="">
-      <div className="bg-[#2F4050] p-2">
+      <div className="bg-[#011c34] p-2">
         <div className="flex-shrink-0">
           <Link href="/" className="block">
             <Image
               width={200}
               height={40}
-              src="/logo-image.jpg"
+              src="/logo.png"
               alt="Logo"
               className="object-cover"
               priority
@@ -290,7 +290,7 @@ export default function SignupForm() {
           Terms & Conditions
         </Link>
       </div>
-      <div className="bg-[#2F4050] py-8"></div>
+      <div className="bg-[#011c34] py-8"></div>
     </FullContainer>
   );
 }

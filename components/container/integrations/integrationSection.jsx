@@ -2,36 +2,8 @@ import React from "react";
 import FullContainer from "../../common/FullContainer";
 import Container from "../../common/Container";
 import Image from "next/image";
+import Features from "../../common/Features";
 
-const IntegrationCard = ({
-  icon,
-  title,
-  description,
-  bgColor = "bg-white",
-}) => (
-  <div
-    className={`${bgColor} px-8 py-12 shadow-md border border-gray-100 transition-shadow duration-200`}
-  >
-    <div className="flex flex-col items-center text-center space-y-3 h-full">
-      <div className="flex justify-center mb-6 ">
-        <Image
-          src={icon}
-          alt="Icon"
-          width={64}
-          height={64}
-          className="object-contain"
-        />
-      </div>
-      <h3 className="font-medium text-[24px] text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-600 text-[14px] leading-relaxed flex-grow">
-        {description}
-      </p>
-      <p className="text-blue-400 text-[14px] hover:text-blue-800 cursor-pointer">
-        Learn more
-      </p>
-    </div>
-  </div>
-);
 
 const IntegrationSection = () => {
   const integrations = [
@@ -153,7 +125,7 @@ const IntegrationSection = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {integrations.map((integration, index) => (
-                  <IntegrationCard
+                  <Features
                     key={index}
                     icon={integration.icon}
                     title={integration.title}

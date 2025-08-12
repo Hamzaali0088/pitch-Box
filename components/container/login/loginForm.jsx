@@ -94,7 +94,7 @@ const handleSubmit = () => {
               <Image
                 width={200}
                 height={40}
-                src="/logo-image.jpg"
+                src="/logo.png"
                 alt="Logo"
                 className="object-cover"
                 priority
