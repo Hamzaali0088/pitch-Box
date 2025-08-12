@@ -5,9 +5,9 @@ import DemoSection from "../../components/container/demo/demoSection";
 const Demo = () => {
   return (
     <>
-    <Navbar/>
-     <DemoSection/>
-     <Footer/>
+      <Navbar />
+      <DemoSection />
+      <Footer />
     </>
   );
 };

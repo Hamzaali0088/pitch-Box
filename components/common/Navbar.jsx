@@ -148,7 +148,6 @@ const navbarMenuItems = [
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileDropdown, setMobileDropdown] = useState(null);
   const dropdownTimeoutRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -173,10 +172,6 @@ const Navbar = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
     }, 200);
-  };
-
-  const toggleMobileDropdown = (label) => {
-    setMobileDropdown(mobileDropdown === label ? null : label);
   };
 
   const closeMobileMenu = () => {
@@ -208,7 +203,7 @@ const Navbar = () => {
       }`}
     >
       <Container className="">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-2 md:py-4">
           {/* logo place here */}
           <div className="flex-shrink-0">
             <Link href="/" className="block">
@@ -269,13 +264,13 @@ const Navbar = () => {
 
                   {/* dropdown menu */}
                   {item.hasDropdown && activeDropdown === item.label && (
-                    <div className="absolute left-0 top-12 z-50 transition-all duration-200 overflow-hidden">
+                    <div className="absolute left-0 top-12 z-50 transition-all duration-200">
                       {item.megaMenu ? (
-                        <Container className="rounded-lg shadow-xl sm:w-[500px] lg:w-[600px] border border-gray-100 bg-white">
-                          <div className="flex flex-row gap-x-8 px-4 py-4">
+                        <Container className="rounded-lg shadow-xl max-w-[600px] w-[500px] border border-gray-100 bg-white">
+                          <div className="flex flex-row gap-x-4 px-2 py-4">
                             {item.sections.map((section, sectionIndex) => (
                               <div className="flex-1" key={sectionIndex}>
-                                <h3 className="font-semibold text-gray-700 border-b border-gray-200 text-[14px] uppercase tracking-widest mb-4 pb-2">
+                                <h3 className="font-semibold text-gray-700 border-b border-gray-200 text-[14px] uppercase tracking-widest mb-2 pb-2">
                                   {section.title}
                                 </h3>
                                 <div className="space-y-1">
@@ -283,7 +278,7 @@ const Navbar = () => {
                                     <Link
                                       key={subIndex}
                                       href={subItem.href}
-                                      className="flex items-start transition-colors duration-200 group p-3 rounded-lg hover:bg-gray-50"
+                                      className="flex items-start transition-colors duration-200 group p-2 rounded-lg hover:bg-gray-50"
                                     >
                                       {subItem && "imgSrc" in subItem && (
                                         <div className="flex-shrink-0 mr-3">
@@ -310,8 +305,8 @@ const Navbar = () => {
 
                             {/* resources featured reads */}
                             {item.featuredReads && (
-                              <div className="flex-1">
-                                <h3 className="font-semibold text-gray-700 border-b border-gray-200 text-[14px] uppercase tracking-widest mb-4 pb-2">
+                              <div className="max-w-[250px] w-full ">
+                                <h3 className="font-semibold text-gray-700 border-b border-gray-200 text-[14px] uppercase tracking-widest mb-2 pb-2">
                                   featured reads
                                 </h3>
                                 <div className="space-y-3">
@@ -410,116 +405,143 @@ const Navbar = () => {
               isSticky || isTransparentPage ? "text-gray-800" : "text-white"
             }`}
           >
-            {isMenuOpen ? (
-              <X className="w-7 h-7 cursor-pointer" />
-            ) : (
-              <Menu className="w-7 h-7 cursor-pointer" />
-            )}
+            <Menu className="w-7 h-7 cursor-pointer" />
           </button>
         </div>
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t z-50">
-            <div className="p-4 space-y-2 max-h-[80vh] overflow-y-auto">
+          <div className="fixed top-0 left-0 h-full w-72 max-w-full bg-[#252525] z-50 overflow-y-auto transition-transform transform translate-x-0">
+            {/* Close button */}
+            <div className="flex justify-end p-2">
+              <button
+                onClick={closeMobileMenu}
+                className="text-white rounded p-3 bg-gray-950"
+              >
+                <X className="w-4 h-4 cursor-pointer" strokeWidth={4} />
+              </button>
+            </div>
+
+            <div className="space-y-2">
               {navbarMenuItems.map((item, index) => (
                 <div key={index}>
                   {item.hasDropdown ? (
                     <div>
-                      <button
-                        className="flex items-center justify-between w-full text-gray-800 font-medium py-3 px-2 hover:bg-gray-50 rounded"
-                        onClick={() => toggleMobileDropdown(item.label)}
-                      >
+                      <div className="flex items-center w-full text-white bg-gray-950 font-medium py-3 px-3">
                         <span>{item.label}</span>
-                        {mobileDropdown === item.label ? (
-                          <ChevronUp className="w-4 h-4" />
-                        ) : (
-                          <ChevronDown className="w-4 h-4" />
-                        )}
-                      </button>
 
-                      {mobileDropdown === item.label && (
-                        <div className="ml-4 mt-2 space-y-2 border-l-2 border-gray-200 pl-4">
-                          {item.megaMenu ? (
-                            <>
-                              {item.sections?.map((section, sectionIndex) => (
-                                <div key={sectionIndex} className="mb-4">
-                                  <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide mb-2">
-                                    {section.title}
-                                  </h4>
-                                  <div className="space-y-2">
-                                    {section.items?.map((subItem, subIndex) => (
-                                      <Link
-                                        key={subIndex}
-                                        href={subItem.href}
-                                        className="block py-2 px-2 text-gray-600 hover:text-blue-500 hover:bg-gray-50 rounded"
-                                        onClick={closeMobileMenu}
-                                      >
-                                        <div className="font-medium text-gray-800">
+                        <ChevronDown className="w-4 h-4" />
+                      </div>
+
+                      <div className="mt-2 space-y-2 p-4 bg-gray-950">
+                        {item.megaMenu ? (
+                          <>
+                            {item.sections?.map((section, sectionIndex) => (
+                              <div key={sectionIndex} className="mb-4">
+                                <h4 className="font-semibold text-white text-[12px] py-2 uppercase tracking-wide mb-2 border-b-2 border-white ">
+                                  {section.title}
+                                </h4>
+                                <div className="space-y-2">
+                                  {section.items?.map((subItem, subIndex) => (
+                                    <Link
+                                      key={subIndex}
+                                      href={subItem.href}
+                                      className="flex gap-2 space-x-2 py-2 px-2 text-white text-[12px]"
+                                    >
+                                      {subItem && "imgSrc" in subItem && (
+                                        <div className="flex-shrink-0 mb-7">
+                                          <Image
+                                            width={20}
+                                            height={20}
+                                            className="object-contain"
+                                            src={subItem.imgSrc}
+                                            alt={subItem.title}
+                                          />
+                                        </div>
+                                      )}
+                                      <div className="flex-1">
+                                        <p className="font-medium text-[12px] text-white">
                                           {subItem.title}
-                                        </div>
-                                        <div className="text-sm text-gray-500">
+                                        </p>
+                                        <p className="text-[12px] text-white">
                                           {subItem.desc}
-                                        </div>
-                                      </Link>
-                                    ))}
-                                  </div>
+                                        </p>
+                                      </div>
+                                    </Link>
+                                  ))}
                                 </div>
-                              ))}
-                              {item.featuredReads && (
-                                <div className="mb-4">
-                                  <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide mb-2">
-                                    featured reads
-                                  </h4>
-                                  <div className="space-y-2">
-                                    {item.featuredReads.map(
-                                      (post, postIndex) => (
-                                        <Link
-                                          key={postIndex}
-                                          href={post.href}
-                                          className="block py-2 px-2 text-gray-600 hover:text-blue-500 hover:bg-gray-50 rounded"
-                                          onClick={closeMobileMenu}
-                                        >
-                                          <div className="font-medium text-gray-800">
-                                            {post.title}
-                                          </div>
-                                          <div className="text-sm text-gray-500">
-                                            {post.desc}
-                                          </div>
-                                        </Link>
-                                      )
-                                    )}
-                                  </div>
+                              </div>
+                            ))}
+                            {item.featuredReads && (
+                              <div className="mb-4">
+                                <h4 className="font-semibold text-white border-b-2 border-white py-2 text-[12px] uppercase tracking-wide mb-2">
+                                  featured reads
+                                </h4>
+                                <div className="space-y-2">
+                                  {item.featuredReads.map((post, postIndex) => (
+                                    <Link
+                                      key={postIndex}
+                                      href={post.href}
+                                      className="group flex items-center gap-4 py-2 px-2 text-white hover:bg-gray-50"
+                                    >
+                                      <div className="flex-shrink-0">
+                                        <Image
+                                          width={60}
+                                          height={30}
+                                          className="object-contain"
+                                          src={post.imgSrc}
+                                          alt={post.title}
+                                        />
+                                      </div>
+                                      <div className="flex-1">
+                                        <p className="font-medium text-[14px] group-hover:text-blue-500 text-white">
+                                          {post.title}
+                                        </p>
+                                        <p className="text-[12px] group-hover:text-blue-500 text-white">
+                                          {post.desc}
+                                        </p>
+                                      </div>
+                                    </Link>
+                                  ))}
                                 </div>
-                              )}
-                            </>
-                          ) : (
-                            <div className="space-y-2">
-                              {item.items?.map((subItem, subIndex) => (
-                                <Link
-                                  key={subIndex}
-                                  href={subItem.href}
-                                  className="block py-2 px-2 text-gray-600 hover:text-blue-500 hover:bg-gray-50 rounded"
-                                  onClick={closeMobileMenu}
-                                >
-                                  <div className="font-medium text-gray-800">
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          <div className="space-y-2">
+                            {item.items?.map((subItem, subIndex) => (
+                              <Link
+                                key={subIndex}
+                                href={subItem.href}
+                                className="flex gap-2 py-2 px-2 text-white  bg-gray-950 "
+                              >
+                                <div className="flex-shrink-0">
+                                  <Image
+                                    width={20}
+                                    height={20}
+                                    className="object-contain"
+                                    src={subItem.imgSrc}
+                                    alt={subItem.title}
+                                  />
+                                </div>
+                                <div className="flex-1">
+                                  <p className="font-medium text-[12px] text-white">
                                     {subItem.title}
-                                  </div>
-                                  <div className="text-sm text-gray-500">
+                                  </p>
+                                  <p className="text-[12px]  text-white">
                                     {subItem.desc}
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
+                                  </p>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   ) : (
                     <Link
-                      className="block text-gray-800 font-medium py-3 px-2 hover:bg-gray-50 rounded"
+                      className="block text-white font-medium py-3 px-2 bg-gray-950"
                       href={item.href}
-                      onClick={closeMobileMenu}
                     >
                       {item.label}
                     </Link>
@@ -527,16 +549,16 @@ const Navbar = () => {
                 </div>
               ))}
 
-              <div className="pt-4 border-t space-y-3">
+              <div className="space-y-3">
                 <Link
-                  className="block text-center px-4 py-3 font-medium uppercase bg-[#1198EB] text-white rounded hover:bg-blue-600 transition-colors"
+                  className="block px-4 py-3 font-medium uppercase bg-gray-950 text-white  hover:bg-[#1198EB] transition-colors"
                   onClick={closeMobileMenu}
                   href="/trial"
                 >
                   try for free
                 </Link>
                 <Link
-                  className="block text-center px-4 py-3 font-medium uppercase border border-[#1198EB] text-[#1198EB] rounded hover:bg-[#1198EB] hover:text-white transition-colors"
+                  className="block px-4 py-3 font-medium uppercase bg-gray-950 text-white  hover:bg-[#1198EB] transition-colors"
                   onClick={closeMobileMenu}
                   href="/demo"
                 >
